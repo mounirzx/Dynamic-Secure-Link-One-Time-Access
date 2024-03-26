@@ -6,12 +6,15 @@
   <title>OneTimeAccess</title>
 </head>
 <body>
+  <h1>Welcome to OneTimeAccess</h1>
+  <p>Click below to access the One-Time Access Page:</p>
   <button id="redirectBtn">Go to One-Time Access Page</button>
 
   <script>
     document.getElementById('redirectBtn').addEventListener('click', function() {
       var token = generateToken();
-      window.location.href = '2nd.html?token=' + token;
+      localStorage.setItem('currentToken', token); // Store token temporarily
+      window.location.href = '2nd.html/' + token; // Use URL path for token
     });
 
     function generateToken() {
