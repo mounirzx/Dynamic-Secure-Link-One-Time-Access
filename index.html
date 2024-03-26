@@ -8,11 +8,11 @@
 <body>
   <h1>Welcome to Dynamic Secure Link One Time Access</h1>
   <p>Click below to generate a one-time access link:</p>
-  <button id="generateBtn">Generate Link</button>
+  <button id="generateBtn">Go to One-Time Access Page</button>
 
   <script>
     document.getElementById('generateBtn').addEventListener('click', function() {
-      var token = generateToken(16); // Specify the desired length of the token
+      var token = generateToken(80); // Specify the desired length of the token
       localStorage.setItem('currentToken', token); // Store token temporarily
       window.location.href = '2nd.html'; // Redirect to 2nd.html
     });
