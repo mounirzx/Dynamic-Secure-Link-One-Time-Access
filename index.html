@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OneTimeAccess</title>
+  <title>SingleUseLink</title>
 </head>
 <body>
-  <h1>Welcome to OneTimeAccess</h1>
+  <h1>Welcome to SingleUseLink</h1>
   <p>Click below to access the One-Time Access Page:</p>
   <button id="redirectBtn">Go to One-Time Access Page</button>
 
@@ -14,7 +14,7 @@
     document.getElementById('redirectBtn').addEventListener('click', function() {
       var token = generateToken();
       localStorage.setItem('currentToken', token); // Store token temporarily
-      window.location.href = '2nd.html/' + token; // Use URL path for token
+      window.location.href = '2nd.html'; // Redirect to 2nd.html
     });
 
     function generateToken() {
