@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SingleUseLink</title>
+  <title>Dynamic Secure Link One Time Access</title>
 </head>
 <body>
-  <h1>Welcome to SingleUseLink</h1>
-  <p>Click below to access the One-Time Access Page:</p>
-  <button id="redirectBtn">Go to One-Time Access Page</button>
+  <h1>Welcome to Dynamic Secure Link One Time Access</h1>
+  <p>Click below to generate a one-time access link:</p>
+  <button id="generateBtn">Generate Link</button>
 
   <script>
-    document.getElementById('redirectBtn').addEventListener('click', function() {
-      var token = generateToken();
+    document.getElementById('generateBtn').addEventListener('click', function() {
+      var token = generateToken(16); // Specify the desired length of the token
       localStorage.setItem('currentToken', token); // Store token temporarily
       window.location.href = '2nd.html'; // Redirect to 2nd.html
     });
 
-    function generateToken() {
+    function generateToken(length) {
       // Generate a random token
-      var token = Math.random().toString(36).substr(2);
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var token = '';
+      for (var i = 0; i < length; i++) {
+        token += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
       return token;
     }
   </script>
