@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneTimeAccess - Second Page</title>
+</head>
+<body>
+  <script>
+    // Function to get query parameter by name
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Get token from URL
+    var token = getParameterByName('token');
+
+    // Validate token
+    if (token === null || token === '') {
+      // If token is not present or empty, redirect back to index.html
+      window.location.href = 'index.html';
+    } else {
+      // Token is valid, you can allow access to the page
+      // You can add your page content or logic here
+      console.log("Access granted");
+    }
+  </script>
+</body>
+</html>
